@@ -19,6 +19,12 @@ class Reloj extends Thread {
   public void run() {
     for (int i = 1; i <= cuenta; i++) {
        	//EJERCICIO: Provoque un retraso de 1000 milisegundos
+    	try {
+			Thread.currentThread().sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     System.out.println(getName() + "Riiinnnng!!!");
   }
@@ -27,5 +33,11 @@ class Reloj extends Thread {
 public class Relojes {
 	public static void main(String[] args){
 		//EJERCICIO: Cree dos instancias de la clase Reloj
+		Reloj reloj1, reloj2;
+		reloj1 = new Reloj("uno", 10);
+		reloj2 = new Reloj("dos", 20);
+		
+		reloj1.start();
+		reloj2.start();
 	}
 }

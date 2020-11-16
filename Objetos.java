@@ -66,8 +66,33 @@ class Rectangulo {
 //EJERCICIO: con un nuevo atributo color y sobrecargando el método toString
 class RectanguloColor extends Rectangulo {
   //EJERCICIO: ...
+  protected int color = 0;
+  
+  public RectanguloColor(int origenx, int origeny, int ancho, int alto, int color){
+	     origen=new Punto(origenx, origeny);
+	     this.ancho=ancho; this.alto=alto; this.color=color;
+	  }
+  public RectanguloColor(Punto p, int ancho, int alto, int color){
+	  origen= p;
+	  this.ancho=ancho; this.alto=alto; this.color=color;
+  }
+  public RectanguloColor(int ancho, int alto, int color){
+	  origen= new Punto(0,0);
+	  this.ancho=ancho; this.alto=alto; this.color=color;
+  }
+  public RectanguloColor(){
+	  origen= new Punto(0,0);
+	  this.ancho=0; this.alto=0; this.color=0;
+  }
+  public int color(){
+	  return color;
+  }
+
   public String toString() {
   //EJERCICIO: Sobrecargue este método para que incluya en el String también el color
+	  return "(Origen: {" + Integer.toString(origen.x) + "," + Integer.toString(origen.y) 
+	  + "}, Final: {" + Integer.toString(origen.x+ancho) + "," 
+	  + Integer.toString(origen.y+alto) + "}, Color: {" + Integer.toString(color) + "})";
 
   }
 }
@@ -101,7 +126,8 @@ public class Objetos{
         R3 = new Rectangulo(i[0],i[1],i[2],i[3]);
 
 
-        RC= //EJERCICIO: Cree una instancia de rectángulo color RC
+        RC = new RectanguloColor(R3.origen, R3.alto, R3.ancho, i[0]);
+        	//EJERCICIO: Cree una instancia de rectángulo color RC
             //EJERCICIO: que añada a R3 el atributo de color.
 
         System.out.println("Nombre de la clase: " + Rectangulo.nombre());
@@ -113,11 +139,14 @@ public class Objetos{
          //EJERCICIO: Invoque el método mover(10,10) sobre R3
          //EJERCICIO: Invoque el método toString sobre R3 y RC
          //EJERCICIO: y visualicelos por pantalla el resultado
-
+        R3.mover(10, 10);
+        System.out.println(R3.toString());
+        System.out.println(RC.toString());
          //PREGUNTA: Se ha "movido" R3? y RC? Debería haberse "movido" RC?
          // Explique convenientemente este aspecto.
 
-        C= //EJERCICIO: Cree un CuadradoColor con origen el punto (2,2),alto=5,ancho=25
+        C= new CuadradoColor(new Punto(2,2),5,25);
+        		//EJERCICIO: Cree un CuadradoColor con origen el punto (2,2),alto=5,ancho=25
         System.out.println("C: " + C.toString());
         System.out.println("Area de C: " + C.area());
 

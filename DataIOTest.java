@@ -21,11 +21,11 @@ public class DataIOTest {
 
         //EJERCICIO: Instancie un objeto de tipo DataOutputStream para escribir
         //           en el fichero "invoice1.txt"
-        DataOutputStream out =
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("invoice1.txt"));
 
         //EJERCICIO: Instancie un objeto de tipo DataInputStream para leer
         //           del fichero "invoice1.txt"
-        DataInputStream in =
+        DataInputStream in = new DataInputStream(new FileInputStream("invoice1.txt"));
 
         //Los datos son:
         double[] prices = { 19.99, 9.99, 15.99, 3.99, 4.99 };
@@ -56,10 +56,13 @@ public class DataIOTest {
         try {
             while (true) {
                 //EJERCICIO: leer el primer double del fichero sobre la variable price
+            	price = in.readDouble();
                 in.readChar();       // throws out the tab
                 //EJERCICIO: leer el int siguiente sobre la variable unit
+                unit = in.readInt();
                 in.readChar();       // throws out the tab
                 //EJERCICIO: leer la cadena siguiente sobre la variable desc
+                desc = in.readLine();
                 System.out.println("You've ordered " +
 				              unit + " units of " +
 				              desc + " at $" + price);
@@ -69,6 +72,6 @@ public class DataIOTest {
         }
         System.out.println("For a TOTAL of: $" + total);
         in.close();
-        while (true){};
+        while (true){}
     }
 }

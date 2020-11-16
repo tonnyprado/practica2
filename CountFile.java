@@ -13,7 +13,8 @@ class CountFile {
         if (args.length >= 1) {
         	 // EJERCICIO: Cree una instancia de FileInputStream, llamada is,
         	 // para leer del fichero que se especifica como args[0]
-            filename = args[0];
+        	filename = new String(args[0]);
+            is = new FileInputStream(filename);
             
             
 
@@ -22,7 +23,7 @@ class CountFile {
             filename = "Input";
         }
 
-        while (is./* EJERCICIO: utilice un metodo de FileInputStream para leer un caracter */!= -1)
+        while (is.read() != -1)
         
             count++;
 

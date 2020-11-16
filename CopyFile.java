@@ -12,10 +12,12 @@ class CopyFile {
         if (args.length == 2) {
             // EJERCICIO: Cree una instancia de FileInputStream, llamada is,
             // para leer del fichero que se especifica como args[0]
-
+        	FileInputStream is = new FileInputStream(args[0]);
+        	
             
             // EJERCICIO: Cree una instancia de FileOutputStream, llamada os,
             // para escribir en el fichero que se especifica como args[1]
+        	FileOutputStream os = new FileOutputStream(args[1]);
 
 
             while ((count=is.read(buffer)) != -1)
